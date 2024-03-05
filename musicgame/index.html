@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<title>Untitled Music Game</title>
+		<link rel="stylesheet" href="./style.css">
+		<audio id="filler" preload="auto" src="./blank.mp3"></audio>
+	</head>
+	<body>
+		<div class="overlay" id="startScreen">
+			<button type="button" value="Start" onclick="document.getElementById('filler').play(); document.getElementById('startScreen').style = 'display: none'; Tone.start();">Start</button>
+		</div>
+		<a href="index.html">Index</a></br>
+		Volume: <input type="range" min="-40" max="15" value="-15" class="slider" id="volumeSlider" style="margin: 0 1em;" onchange="updateVolume()">
+		<div id="keyboard">
+			<div id="curVoices">0</div>
+		</div>
+		<div>
+			<button onclick="createKeyboard(1,1)">Create</button>
+			<button onclick="deleteKeyboard()">Delete</button>
+		</div>
+		<div>
+			<button onclick="">Mary Had A Little Lamb</button>
+		</div>
+		<footer>ToDo:</br>Automate playing</br>Add hotkeys</br>Actual points and incrementing</footer>
+
+		<script src="Tone.js"></script>
+		<script src="main.js"></script>
+	</body>
+</html>

@@ -2,29 +2,49 @@
 <html lang="en" dir="ltr">
 	<head>
 		<meta charset="utf-8">
-		<title>Untitled Music Game</title>
+		<title>Chord Progression</title>
 		<link rel="stylesheet" href="./style.css">
-		<audio id="filler" preload="auto" src="./blank.mp3"></audio>
+		<link rel="icon" type="image/x-icon" href="favicon.ico">
 	</head>
 	<body>
 		<div class="overlay" id="startScreen">
-			<button type="button" value="Start" onclick="document.getElementById('filler').play(); document.getElementById('startScreen').style = 'display: none'; Tone.start();">Start</button>
+			<button type="button" value="Start" onclick="document.getElementById('startScreen').style = 'display: none'; Tone.start();">Start</button>
 		</div>
-		<a href="/index.html">Home</a></br>
-		Volume: <input type="range" min="-40" max="15" value="-15" class="slider" id="volumeSlider" style="margin: 0 1em;" onchange="updateVolume()">
-		<div id="keyboard">
-			<div id="curVoices">0</div>
-		</div>
-		<div>
-			<button onclick="createKeyboard(1,1)">Create</button>
-			<button onclick="deleteKeyboard()">Delete</button>
-		</div>
-		<div>
-			<button onclick="">Mary Had A Little Lamb</button>
-		</div>
-		<footer>ToDo:</br>Automate playing</br>Add hotkeys</br>Actual points and incrementing</footer>
-
+		<main></main>
+		<aside id="keyboardSidebar">
+			<a href="/index.html">Home</a></br>
+			
+			<a id="testButton" onclick="createKeyboardControl('testKB', 'Test Keyboard'); document.getElementById('testButton').style = 'display: none';" href="#">Create TestKB</a></br>
+			
+		</aside>
+		<footer>
+			
+			ToDo:
+			<ol>
+				<li><del>Switched to Tone.js</del></li>
+				<li>Automate playing</li>
+				<li>Add hotkeys</li>
+				<li>Actual points and incrementing</li>
+				<li>metronome</li>
+				<li>line up all the borders??</li>
+			</ol>
+		</footer>
 		<script src="Tone.js"></script>
-		<script src="main.js"></script>
+		<script src="main.js"/></script>
+		<script type="text/javascript">
+			testInput = {
+			"C4": "a",
+			"D4": "s",
+			"E4": "d",
+			"F4": "f",
+			"G4": "g",
+			"A5": "h",
+			"B5": "j"
+			};
+			createKeyboardControl("kbMain", "Main Keyboard");
+			newKeyboard("kbMain", "Main Keyboard", testInput);
+			createKeyboardControl("kbTwo", "Keyboard Two");
+			newKeyboard("kbTwo", "Keyboard Two");
+		</script>
 	</body>
 </html>

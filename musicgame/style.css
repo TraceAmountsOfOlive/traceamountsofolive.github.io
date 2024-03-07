@@ -1,53 +1,215 @@
+:root {
+	--footerHeight: 10em;
+	--sidebarWidth: 10em;=
+}
+
+/* 
+Full Elements 
+*/
 body {
-	background-color: rgb(30, 20, 30);
-	color: white
+	margin: 0.5em;
+	display: block;
+	background-color: RebeccaPurple;
+	color: white;
+	overflow: auto;
 }
 footer {
+	position: fixed;
+	bottom: 0; left: 0;
+	margin: inherit;
+	height: var(--footerHeight);
+	width: calc(100% - 16px);
 	border: 1px solid white;
+	background-color: rgba(255, 255, 255, 0.1);
+	font-family: monospace;
+	white-space: nowrap;
+	overflow: hidden;
+}
+main:empty {
+	outline: 0;
+}
+main {
+	margin: 0 0 0 calc(2em + var(--sidebarWidth));
+	width: auto;
+	max-height: calc(100vh - var(--footerHeight));
+	outline: 1px solid white;
+	overflow: auto;
+	scrollbar-width: thin;
+}
+table {
 	margin: auto;
 }
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+	opacity: 1;
+}
+ol{
+	margin:auto;
+}
+/* 
+Links
+*/
+a:visited {color: lightgreen;}
+a:hover   {color: hotpink;}
+a:active  {color: blue;}
+
+.testDiv{
+	outline: 1px solid white;
+	padding: 0.5em;
+}
+
+/*
+Overlay
+*/
 .overlay {
-	height: 100%;
-	width: 100%;
+	height: 100vh;
+	width: 100vw;
 	position: fixed;
 	z-index: 100;
-	left: 0;
-	top: 0;
+	left: 0; top: 0;
 	margin: 0;
 	background-color: rgb(0,0,0, 0.95);
-	overflow-x: hidden;
+	display: flex;
 }
 .overlay * {
-	position: relative;
+	display: block;
 	margin: auto;
-	height: 10%;
-	width: 10%;
 	text-align: center;
-	margin: 30px;
+	font-size: 1.5em;
 }
-.key{ 
+
+/*
+Sidebar
+*/
+aside{
 	position: absolute;
-	border: 1px solid black;
-	cursor:pointer;
+	height: calc(100vh - var(--footerHeight) - 0.5em);
+	padding-top: 0.5em;
+	margin: inherit;
+	z-index: 50;
+	top: 0; left: 0;
+	overflow-x: hidden;
+	border: 1px solid white;
+	background-color: rgba(255, 255, 255, 0.1);
+	min-width: var(--sidebarWidth);
+	text-align: center;
+	scrollbar-gutter: stable both-edges;
+	scrollbar-width: thin;
 }
-div {
-	margin: 10px;
+.octaveSelector {
+	width: 2em;
+	overflow:scroll;
+}
+.keyboardOptions{
+	outline: 1px solid white;
+	outline-offset: -1px;
+	padding: 0.5em;
+	margin: 0 0 -1px 0;
+	font-family: sans-serif;
+}
+
+/*
+Keyboard Elements
+*/
+.keybox:first-of-type{
+	border-top: 0;
+}
+.keybox{
+	border-top: 1px solid white;
+	margin: 0;
+	background-color: rgba(255, 255, 255, 0.1);
+	padding: 0.5em;
+	overflow: auto;
+	position: relative;
+	user-select: none;
+	font-family: monospace;
+}
+
+.key{ 
+	margin: 0;
+	position: absolute;
+	cursor: pointer;
 }
 .label{
 	margin: auto;
 	pointer-events: none;
+	font-family: sans-serif;
 }
-.key:hover {background-color: #71DB90;}
-.key .label {position: absolute; bottom: 15px; text-align: center; left: 0px; right: 0px;}
-.black {background-color: #000000; color: #ffffff; z-index: 1;}
-.white {background-color: #ffffff; color: #454545; z-index: 0;}
-#keyboard {
-	margin: 30px auto; height: 200px;
-	position:relative;
-	user-select:none;
-	-webkit-user-select:none;
-	-moz-user-select:none;
-	-o-user-select:none;
-	max-width: 1200px;
-	width: 100%;
+
+.key .label {
+	position: absolute;
+	bottom: 15px;
+	text-align: center;
+	left: 0px;
+	right: 0px;
+}
+.black {
+	background-color: #222222;
+	color: #ffffff;
+	border: 1px solid black;
+	z-index: 20;
+	box-shadow: 0px 1px 7px 0px rgba(100,100,100,.5);
+	transition: transform .25s;
+	transform-origin: top center;
+	transform:scale(1, 0.98);
+	}
+.white {
+	background-color: #ffffff;
+	color: #454545;
+	border: 1px solid black;
+	border-right: 0;
+	z-index: 10;
+	transition: transform .25s;
+	transform-origin: top center;
+	transform:scale(1, 0.98);
+}
+.white:last-of-type {
+	border-right: 1px solid black;
+}
+.black:hover{
+	background-color: lightgreen;
+}
+.white:hover{
+	background-color: lightgreen;
+}
+
+
+.black.playing {
+	z-index:  19;
+	box-shadow: none;
+	transition: transform .01s ease-in-out;
+	transform-origin: top center;
+	transform:scale(1);
+}
+.white.playing {
+	z-index: 09;
+	box-shadow: 0px 1px 7px 0px rgba(0,0,0,.5) inset;
+	transition: transform .01s ease-in-out;
+	transform-origin: top center;
+	transform:scale(1);
+}
+
+.keyboard {
+	margin: auto;
+	height: 202px;
+	position: relative;
+	background-image: linear-gradient(to right, darkgray 40px, black 1px);
+	background-size: 41px 100%;
+	background-position: 1px;
+	border: 5px solid beige;
+	box-shadow: 3px 3px 7px black;
+	user-select: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-o-user-select: none;
+}
+
+.keyboardControls {
+	position: sticky;
+	left: 0;
+	margin-top: 0.5em;
+}
+
+.slider {
+	height: 0.5em;
 }

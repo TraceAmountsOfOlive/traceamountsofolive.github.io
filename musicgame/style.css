@@ -1,6 +1,7 @@
 :root {
 	--footerHeight: 10em;
-	--sidebarWidth: 10em;=
+	--sidebarWidth: 10em;
+	box-sizing: border-box;
 }
 
 /* 
@@ -87,7 +88,7 @@ aside{
 	padding-top: 0.5em;
 	margin: inherit;
 	z-index: 50;
-	top: 0; left: 0;
+	top: -1px; left: 0;
 	overflow-x: hidden;
 	border: 1px solid white;
 	background-color: rgba(255, 255, 255, 0.1);
@@ -130,19 +131,25 @@ Keyboard Elements
 	position: absolute;
 	cursor: pointer;
 }
-.label{
+.label, .hotkey{
 	margin: auto;
 	pointer-events: none;
 	font-family: sans-serif;
 }
 
-.key .label {
+.key .label, .key .hotkey {
 	position: absolute;
 	bottom: 15px;
 	text-align: center;
 	left: 0px;
 	right: 0px;
 }
+
+.key .hotkey {
+	bottom: 45px;
+	font-size: 0.75em;
+ }
+
 .black {
 	background-color: #222222;
 	color: #ffffff;

@@ -23,26 +23,35 @@
 			<ol>
 				<li><del>Switched to Tone.js</del></li>
 				<li>Automate playing</li>
-				<li>Add hotkeys</li>
+				<li><del>Add hotkeys</del></li>
 				<li>Actual points and incrementing</li>
 				<li>metronome</li>
 				<li>line up all the borders??</li>
+				<li>Sustain pedal - spacebar?</li>
 			</ol>
 		</footer>
 		<script src="Tone.js"></script>
 		<script src="main.js"/></script>
 		<script type="text/javascript">
-			testInput = {
-			"C4": "a",
-			"D4": "s",
-			"E4": "d",
-			"F4": "f",
-			"G4": "g",
-			"A5": "h",
-			"B5": "j"
+			kbInputs["kbMain"] = {
+			"B3":  "q",
+			"C4":  "a",
+			"C#4": "w",
+			"D4":  "s",
+			"D#4": "e",
+			"E4":  "d",
+			"F4":  "f",
+			"F#4": "t",
+			"G4":  "g",
+			"G#4": "y",
+			"A4":  "h",
+			"A#4": "u",
+			"B4":  "j",
+			"C5":  "k",
+			"D5":  "l"
 			};
 			createKeyboardControl("kbMain", "Main Keyboard");
-			newKeyboard("kbMain", "Main Keyboard", testInput);
+			newKeyboard("kbMain", "Main Keyboard");
 			createKeyboardControl("kbTwo", "Keyboard Two");
 			newKeyboard("kbTwo", "Keyboard Two");
 		</script>

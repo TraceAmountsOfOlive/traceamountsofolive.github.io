@@ -1,3 +1,5 @@
+	--sidebarWidth: 10em;
+	box-sizing: border-box;
 body {
 	background-color: rgb(30, 20, 30);
 	color: white
@@ -25,17 +27,24 @@ footer {
 	text-align: center;
 	margin: 30px;
 }
+	top: -1px; left: 0;
 .key{ 
 	position: absolute;
 	border: 1px solid black;
 	cursor:pointer;
 }
-div {
+.label, .hotkey{
 	margin: 10px;
 }
-.label{
 	margin: auto;
 	pointer-events: none;
+.key .label, .key .hotkey {
+
+.key .hotkey {
+	bottom: 45px;
+	font-size: 0.75em;
+ }
+
 }
 .key:hover {background-color: #71DB90;}
 .key .label {position: absolute; bottom: 15px; text-align: center; left: 0px; right: 0px;}

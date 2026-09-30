@@ -1,0 +1,99 @@
+body {
+	--bg-color: #F1ECE5;
+
+	margin: 0;
+	padding: 0;
+	background-color: var(--bg-color);
+
+	main {
+		display: flex;
+		align-items: center;
+		justify-content: space-around;
+		height: 98vh;
+		max-width: 174vh; /* Keeps the screen just about 1920x1080 on ultrawide monitors */
+		overflow: clip;
+		font-family: sans-serif;
+		padding: 1vh;
+		div#ancestry-table-wrapper {
+			height: 98vh;
+			overflow-x: clip;
+			overflow-y: scroll;
+			border: 1px solid black;
+			table#ancestryTable {
+				height: fit-content;
+				border-spacing: 0;
+				tr {
+					td, th {
+						padding: 2px;
+						text-align: center;
+						border-bottom: 1px solid black;
+					}
+					td.CON, td.WIS, td.DEX, td.INT, td.STR, td.CHA, td.\- { border: none; }
+
+					th:first-child,  td:first-child,
+					th:nth-child(2), td:nth-child(2),
+					th:nth-child(4), td:nth-child(4) {
+						border-right: 1px solid black;
+					}
+
+					td.Uncommon { background-color: #F1BE73; padding:0 0.25em 0 0.25em;}
+					td.Rare { background-color: #A6C9EC; }
+					td.\-  { background-color: #CCCCCC; }
+					td.CON { background-color: #FFDC6D; }
+					td.WIS { background-color: #C6E6A2; }
+					td.DEX { background-color: #FFFF8F; }
+					td.INT { background-color: #7DDDFF; }
+					td.STR { background-color: #FF9B9B; }
+					td.CHA { background-color: #CDACE6; }
+				}
+				thead {
+					position: sticky;
+					top: 0;
+					background: var(--bg-color);
+					border: 1px solid black;
+					font-weight: bold;
+					th {
+						border-bottom: 2px solid black;
+					}
+				}
+			}
+		}
+		table#controls:has(input:checked) {
+			tr.lower-boost {
+				text-decoration: line-through;
+				font-style: italic;
+				background-color: #BBB;
+			}
+		}
+		table#controls {
+			border-collapse: collapse;
+			tr {
+				td:first-child {
+					text-align: right;
+				}
+				td:last-child {
+					text-align: center;
+				}
+				td {
+					border: 1px solid black;
+				}
+			}
+			tr.button-row {
+				td:first-child {
+					text-align: center;
+				}
+			}
+			tr.section-head {
+				border-top: 2px solid black;
+			}
+			tr.subtable-break {
+				height: 1em;
+				border: 0;
+			}
+			tr.lower-boost {
+				font-size: 0.8em;
+				background-color: #DDD;
+			}
+		}
+	}
+}

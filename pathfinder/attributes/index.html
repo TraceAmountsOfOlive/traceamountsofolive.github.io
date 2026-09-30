@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Hello World!</title>
+		<link rel="stylesheet" href="./attributes.css">
+	</head>
+	<body>
+		<main>
+			<div id="ancestry-table-wrapper"></div>
+			<table id="controls">
+				<tr><td colspan=99>Filters</td></tr>
+				<tr class="button-row">
+					<td><button onclick="clearBoosts()">Clear Boosts</button></td>
+					<td><button onclick="clearFlaws()">Clear Flaws</button></td>
+				</tr>
+				<tr><td colspan=99><button onclick="clearFilters()">Clear All</button></td></tr>
+
+				<tr class="subtable-break"></tr>
+
+				<!-- Boosts -->
+				<tr><td><label for="needs-all-boosts-checkbox">Needs all?</label></td>
+				<td><input type="checkbox" id="needs-all-boosts-checkbox" onchange="updateBoosts()"/></td></tr>
+				<tr class="section-head"><td>Has Boost:</td><td><select name="boost-dropdown-1" id="boost-dropdown-1" onchange="updateTable()">
+					<option value=0>-</option>
+					<option value=2>CHA</option>
+					<option value=4>CON</option>
+					<option value=8>DEX</option>
+					<option value=16>INT</option>
+					<option value=32>STR</option>
+					<option value=64>WIS</option>
+				</select></td></tr>
+				<tr><td>Has Boost:</td><td><select name="boost-dropdown-2" id="boost-dropdown-2" onchange="updateTable()">
+					<option value=0>-</option>
+					<option value=2>CHA</option>
+					<option value=4>CON</option>
+					<option value=8>DEX</option>
+					<option value=16>INT</option>
+					<option value=32>STR</option>
+					<option value=64>WIS</option>
+				</select></td></tr>
+				<tr><td>Has Boost:</td><td><select name="boost-dropdown-3" id="boost-dropdown-3" onchange="updateTable()">
+					<option value=0>-</option>
+					<option value=2>CHA</option>
+					<option value=4>CON</option>
+					<option value=8>DEX</option>
+					<option value=16>INT</option>
+					<option value=32>STR</option>
+					<option value=64>WIS</option>
+				</select></td></tr>
+				<tr class="section-head lower-boost"><td>Has Boost:</td><td><select name="boost-dropdown-4" id="boost-dropdown-4" onchange="updateTable()">
+					<option value=0>-</option>
+					<option value=2>CHA</option>
+					<option value=4>CON</option>
+					<option value=8>DEX</option>
+					<option value=16>INT</option>
+					<option value=32>STR</option>
+					<option value=64>WIS</option>
+				</select></td></tr>
+				<tr class="lower-boost"><td>Has Boost:</td><td><select name="boost-dropdown-5" id="boost-dropdown-5" onchange="updateTable()">
+					<option value=0>-</option>
+					<option value=2>CHA</option>
+					<option value=4>CON</option>
+					<option value=8>DEX</option>
+					<option value=16>INT</option>
+					<option value=32>STR</option>
+					<option value=64>WIS</option>
+				</select></td></tr>
+				<tr class="lower-boost"><td>Has Boost:</td><td><select name="boost-dropdown-6" id="boost-dropdown-6" onchange="updateTable()">
+					<option value=0>-</option>
+					<option value=2>CHA</option>
+					<option value=4>CON</option>
+					<option value=8>DEX</option>
+					<option value=16>INT</option>
+					<option value=32>STR</option>
+					<option value=64>WIS</option>
+				</select></td></tr>
+				<tr class="section-head"><td>No Boost:</td><td><select name="no-boost-dropdown-1" id="no-boost-dropdown-1" onchange="updateTable()">
+					<option value=0>-</option>
+					<option value=2>CHA</option>
+					<option value=4>CON</option>
+					<option value=8>DEX</option>
+					<option value=16>INT</option>
+					<option value=32>STR</option>
+					<option value=64>WIS</option>
+				</select></td></tr>
+				<tr><td>No Boost:</td><td><select name="no-boost-dropdown-2" id="no-boost-dropdown-2" onchange="updateTable()">
+					<option value=0>-</option>
+					<option value=2>CHA</option>
+					<option value=4>CON</option>
+					<option value=8>DEX</option>
+					<option value=16>INT</option>
+					<option value=32>STR</option>
+					<option value=64>WIS</option>
+				</select></td></tr>
+				<tr><td>No Boost:</td><td><select name="no-boost-dropdown-3" id="no-boost-dropdown-3" onchange="updateTable()">
+					<option value=0>-</option>
+					<option value=2>CHA</option>
+					<option value=4>CON</option>
+					<option value=8>DEX</option>
+					<option value=16>INT</option>
+					<option value=32>STR</option>
+					<option value=64>WIS</option>
+				</select></td></tr>
+				<tr><td>No Boost:</td><td><select name="no-boost-dropdown-4" id="no-boost-dropdown-4" onchange="updateTable()">
+					<option value=0>-</option>
+					<option value=2>CHA</option>
+					<option value=4>CON</option>
+					<option value=8>DEX</option>
+					<option value=16>INT</option>
+					<option value=32>STR</option>
+					<option value=64>WIS</option>
+				</select></td></tr>
+				<tr><td>No Boost:</td><td><select name="no-boost-dropdown-5" id="no-boost-dropdown-5" onchange="updateTable()">
+					<option value=0>-</option>
+					<option value=2>CHA</option>
+					<option value=4>CON</option>
+					<option value=8>DEX</option>
+					<option value=16>INT</option>
+					<option value=32>STR</option>
+					<option value=64>WIS</option>
+				</select></td></tr>
+				<tr><td>No Boost:</td><td><select name="no-boost-dropdown-6" id="no-boost-dropdown-6" onchange="updateTable()">
+					<option value=0>-</option>
+					<option value=2>CHA</option>
+					<option value=4>CON</option>
+					<option value=8>DEX</option>
+					<option value=16>INT</option>
+					<option value=32>STR</option>
+					<option value=64>WIS</option>
+				</select></td></tr>
+				<tr class="subtable-break"></tr>
+
+				<!-- Flaws -->
+				<tr><td><label for="needs-flaw-checkbox">Needs Flaw?</label></td>
+				<td><input type="checkbox" id="needs-flaw-checkbox" onchange="updateTable()"/></td></tr>
+				<tr class="section-head"><td>Has Flaw:</td><td><select name="flaw-dropdown-1" id="flaw-dropdown-1" onchange="updateTable()">
+					<option value=0>-</option>
+					<option value=2>CHA</option>
+					<option value=4>CON</option>
+					<option value=8>DEX</option>
+					<option value=16>INT</option>
+					<option value=32>STR</option>
+					<option value=64>WIS</option>
+				</select></td></tr>
+				<tr><td>Has Flaw:</td><td><select name="flaw-dropdown-2" id="flaw-dropdown-2" onchange="updateTable()">
+					<option value=0>-</option>
+					<option value=2>CHA</option>
+					<option value=4>CON</option>
+					<option value=8>DEX</option>
+					<option value=16>INT</option>
+					<option value=32>STR</option>
+					<option value=64>WIS</option>
+				</select></td></tr>
+				<tr><td>Has Flaw:</td><td><select name="flaw-dropdown-3" id="flaw-dropdown-3" onchange="updateTable()">
+					<option value=0>-</option>
+					<option value=2>CHA</option>
+					<option value=4>CON</option>
+					<option value=8>DEX</option>
+					<option value=16>INT</option>
+					<option value=32>STR</option>
+					<option value=64>WIS</option>
+				</select></td></tr>
+				<tr><td>Has Flaw:</td><td><select name="flaw-dropdown-4" id="flaw-dropdown-4" onchange="updateTable()">
+					<option value=0>-</option>
+					<option value=2>CHA</option>
+					<option value=4>CON</option>
+					<option value=8>DEX</option>
+					<option value=16>INT</option>
+					<option value=32>STR</option>
+					<option value=64>WIS</option>
+				</select></td></tr>
+				<tr><td>Has Flaw:</td><td><select name="flaw-dropdown-5" id="flaw-dropdown-5" onchange="updateTable()">
+					<option value=0>-</option>
+					<option value=2>CHA</option>
+					<option value=4>CON</option>
+					<option value=8>DEX</option>
+					<option value=16>INT</option>
+					<option value=32>STR</option>
+					<option value=64>WIS</option>
+				</select></td></tr>
+				<tr><td>Has Flaw:</td><td><select name="flaw-dropdown-6" id="flaw-dropdown-6" onchange="updateTable()">
+					<option value=0>-</option>
+					<option value=2>CHA</option>
+					<option value=4>CON</option>
+					<option value=8>DEX</option>
+					<option value=16>INT</option>
+					<option value=32>STR</option>
+					<option value=64>WIS</option>
+				</select></td></tr>
+				<tr class="section-head"><td>No Flaw:</td><td><select name="no-flaw-dropdown-1" id="no-flaw-dropdown-1" onchange="updateTable()">
+					<option value=0>-</option>
+					<option value=2>CHA</option>
+					<option value=4>CON</option>
+					<option value=8>DEX</option>
+					<option value=16>INT</option>
+					<option value=32>STR</option>
+					<option value=64>WIS</option>
+				</select></td></tr>
+				<tr><td>No Flaw:</td><td><select name="no-flaw-dropdown-2" id="no-flaw-dropdown-2" onchange="updateTable()">
+					<option value=0>-</option>
+					<option value=2>CHA</option>
+					<option value=4>CON</option>
+					<option value=8>DEX</option>
+					<option value=16>INT</option>
+					<option value=32>STR</option>
+					<option value=64>WIS</option>
+				</select></td></tr>
+				<tr><td>No Flaw:</td><td><select name="no-flaw-dropdown-3" id="no-flaw-dropdown-3" onchange="updateTable()">
+					<option value=0>-</option>
+					<option value=2>CHA</option>
+					<option value=4>CON</option>
+					<option value=8>DEX</option>
+					<option value=16>INT</option>
+					<option value=32>STR</option>
+					<option value=64>WIS</option>
+				</select></td></tr>
+				<tr><td>No Flaw:</td><td><select name="no-flaw-dropdown-4" id="no-flaw-dropdown-4" onchange="updateTable()">
+					<option value=0>-</option>
+					<option value=2>CHA</option>
+					<option value=4>CON</option>
+					<option value=8>DEX</option>
+					<option value=16>INT</option>
+					<option value=32>STR</option>
+					<option value=64>WIS</option>
+				</select></td></tr>
+				<tr><td>No Flaw:</td><td><select name="no-flaw-dropdown-5" id="no-flaw-dropdown-5" onchange="updateTable()">
+					<option value=0>-</option>
+					<option value=2>CHA</option>
+					<option value=4>CON</option>
+					<option value=8>DEX</option>
+					<option value=16>INT</option>
+					<option value=32>STR</option>
+					<option value=64>WIS</option>
+				</select></td></tr>
+				<tr><td>No Flaw:</td><td><select name="no-flaw-dropdown-6" id="no-flaw-dropdown-6" onchange="updateTable()">
+					<option value=0>-</option>
+					<option value=2>CHA</option>
+					<option value=4>CON</option>
+					<option value=8>DEX</option>
+					<option value=16>INT</option>
+					<option value=32>STR</option>
+					<option value=64>WIS</option>
+				</select></td></tr>
+			</table>
+		</main>
+	</body>
+	<script src="./attributes.js"></script>
+</html>

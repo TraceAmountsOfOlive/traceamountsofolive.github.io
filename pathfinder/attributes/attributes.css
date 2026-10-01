@@ -58,7 +58,7 @@ body {
 				}
 			}
 		}
-		table#controls:has(input:checked) {
+		table#controls:has(input#needs-all-boosts-checkbox:checked) {
 			tr.lower-boost {
 				text-decoration: line-through;
 				font-style: italic;
